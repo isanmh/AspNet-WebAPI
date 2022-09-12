@@ -1,0 +1,36 @@
+Cara intall Web api :
+dotnet new webapi -o NamaApp
+
+intall https :
+dotnet dev-certs https --trust
+
+buat controller untuk pembuatan endpoint API
+buat model untuk database
+install packages Menggunkan Nuget Galllery :
+    ctrl + shipt + P
+    - Entity Framwork Net Core 
+    - Entity Framework SQL Server
+    - Entity Framework Core InMemory
+
+buat koneksi di programs.cs db Connection
+
+API otomatis Restfull API:
+buat model 
+install Ijection depedencies
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool install -g dotnet-aspnet-codegenerator
+
+cara Scaffoldnya :
+dotnet-aspnet-codegenerator controller -name BookController -async -api -m Book -dc BookContext -outDir Controllers
+
+buat koneksi ke database sql Server
+Lakukan migrations :
+dotnet ef migrations add BookCreate --context BookContext
+dotnet ef migrations add ContactCreate --context ContactContext
+
+dotnet ef database update --context BookContext
+dotnet ef database update --context ContactContext
+
+dotnet ef migrations remove
